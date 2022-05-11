@@ -7,6 +7,11 @@ jobs:
     name: Deploy
     runs-on: ubuntu-latest
     steps:
+      - name: Setup SSH
+        uses: MrSquaare/ssh-setup-action@v1
+        with:
+          host: github.com
+          private-key: ${{ secrets.SSH_PRIVATE_KEY }}
       - name: infra-deploy
         run: |
           sudo apt-get -y update; sudo apt-get -y install git
