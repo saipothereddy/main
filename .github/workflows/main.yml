@@ -18,5 +18,5 @@ jobs:
           git clone git@github.com:saipothereddy/liquibase.git -b main
           ls -la
           cd liquibase/
-          git checkout -b test1
+          if: "!contains(git chest -b test1, 'SKIP SCRIPTS')"    <--- skips everything in this job if head commit message does not contain 'SKIP SCRIPTS'
           git push -u origin test1
