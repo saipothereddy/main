@@ -19,6 +19,5 @@ jobs:
           ls -la
           cd main/
           git checkout -b test
-          git add .
-          git commit -m "new branch"
+          git pull origin test
           git push --set-upstream origin test
