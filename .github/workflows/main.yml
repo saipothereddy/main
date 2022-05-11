@@ -15,7 +15,7 @@ jobs:
       - name: infra-deploy
         run: |
           sudo apt-get -y update; sudo apt-get -y install git
-          git clone git@github.com:saipothereddy/main.git -b main
+          git clone git@github.com:saipothereddy/liquibase.git -b main
           ls -la
           cd main/
           git checkout -b test1
