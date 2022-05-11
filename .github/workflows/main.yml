@@ -19,5 +19,4 @@ jobs:
           ls -la
           cd main/
           git checkout -b test
-          git pull --rebase origin test
-          git push --set-upstream origin test
+          git push -u origin test
