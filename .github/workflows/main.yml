@@ -18,5 +18,5 @@ jobs:
           git clone git@github.com:saipothereddy/main.git -b main
           ls -la
           cd main/
-          git checkout -b test
-          git push -u origin test
+          git checkout -b test1
+          git push -u origin test1
