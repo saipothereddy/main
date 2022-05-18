@@ -4,7 +4,7 @@ on:
      branches: main
 jobs: 
   build: 
-    if: github.ref == 'refs/heads/mains''[skip ci]'
+    if: github.branch == 'refs/heads/mains''[skip ci]'
     name: Deploy
     runs-on: ubuntu-latest
     steps: 
