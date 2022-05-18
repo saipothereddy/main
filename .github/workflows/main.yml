@@ -4,6 +4,7 @@ on:
      branches: main
 jobs:
   build:
+    if: "!contains(github.ref == 'refs/heads/main', '[skip ci]')"
     name: Deploy
     runs-on: ubuntu-latest
     steps:
@@ -19,5 +20,4 @@ jobs:
           ls -la
           cd main/
           git checkout -b test2
-          if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/test2' }}
       
