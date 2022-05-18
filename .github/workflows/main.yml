@@ -2,32 +2,35 @@ name: deploy
 on:
     push:
      branches: main
-jobs:
-  build:
+jobs: 
+  build: 
     if: "!contains(github.ref == 'refs/heads/test1', '[skip ci]')"
     name: Deploy
     runs-on: ubuntu-latest
-    steps:
-      - name: Setup SSH
+    steps: 
+      - 
+        name: "Setup SSH"
         uses: MrSquaare/ssh-setup-action@v1
-        with:
+        with: 
           host: github.com
-          private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-      - name: infra-deploy
+          private-key: "${{ secrets.SSH_PRIVATE_KEY }}"
+      - 
+        name: infra-deploy
         run: |
-          sudo apt-get -y update; sudo apt-get -y install git
-          git clone git@github.com:saipothereddy/main.git -b main
-          ls -la
-      - name: skip-workflow
+            sudo apt-get -y update; sudo apt-get -y install git
+            git clone git@github.com:saipothereddy/main.git -b main
+            ls -la
+      - 
         id: main
+        name: skip-workflow
         uses: saulmaldonado/skip-workflow@v1
-        with:
-          phrase: 'main'
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Use Node.js ${{ matrix.node-version }}
-        if: ${{ !steps.skip-workflow.outputs.skip }}
-        uses: actions/setup-node@v1
+        with: 
+          github-token: "${{ secrets.GITHUB_TOKEN }}"
+          phrase: main
+      - 
+        if: "${{ !steps.skip-workflow.outputs.skip }}"
+        name: "Use Node.js ${{ matrix.node-version }}"
         run: |
-          cd main/
-          git push origin test2
+            cd main/
+            git push origin test2
       
