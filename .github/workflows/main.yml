@@ -19,5 +19,5 @@ jobs:
           ls -la
           cd main/
           git checkout -b test1
-          if: "!contains(git chest -b test1, 'SKIP SCRIPTS')"    <--- skips everything in this job if head commit message does not contain 'SKIP SCRIPTS'
+          if: "!contains(git chestout -b test1, 'SKIP SCRIPTS')"    <--- skips everything in this job if head commit message does not contain 'SKIP SCRIPTS'
           git push -u origin test1
