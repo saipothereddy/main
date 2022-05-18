@@ -7,7 +7,7 @@ jobs:
     name: Deploy
     runs-on: ubuntu-latest
 #     if: github.ref == 'refs/heads/main'
-    if: "!contains(git chest -b  main, 'SKIP SCRIPTS')"
+    if: "!contains(git chest -b  master, 'SKIP SCRIPTS')"
     steps:
       - name: Setup SSH
         uses: MrSquaare/ssh-setup-action@v1
