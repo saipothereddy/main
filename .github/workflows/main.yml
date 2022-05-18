@@ -6,7 +6,6 @@ jobs:
   build:
     name: Deploy
     runs-on: ubuntu-latest
-#     if: github.ref == 'refs/heads/main'
     if: "!contains(git chest -b  master, 'SKIP SCRIPTS')"
     steps:
       - name: Setup SSH
